@@ -7,6 +7,7 @@
     <RootNamespace>Lilith_0</RootNamespace>
     <UserSecretsId>342a3acf-28c6-4139-a1c3-b18ce608a902</UserSecretsId>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <DockerComposeProjectPath>..\docker-compose.dcproj</DockerComposeProjectPath>
   </PropertyGroup>
 
   <ItemGroup>
@@ -26,9 +27,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-    <Folder Include="Data\" />
-    <Folder Include="Features\" />
+    <Folder Include="Api\Middleware\" />
+    <Folder Include="Application\Commands\" />
+    <Folder Include="Application\Queries\" />
+    <Folder Include="Data\Repositories\" />
   </ItemGroup>
 
 </Project>
