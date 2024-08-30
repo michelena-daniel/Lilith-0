@@ -28,8 +28,6 @@
 
   <ItemGroup>
     <Folder Include="Api\Middleware\" />
-    <Folder Include="Application\Commands\" />
-    <Folder Include="Application\Queries\" />
     <Folder Include="Data\Repositories\" />
   </ItemGroup>
 

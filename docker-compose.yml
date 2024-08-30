@@ -1,24 +1,18 @@
-networks:
-  lilith-0:
-    driver: bridge
-
-volumes:
-  lilith_db:
-    driver: local
-
 services:
   lilith_db:
     container_name: lilith_db
+    hostname: lilith_db
     image: mcr.microsoft.com/mssql/server:2022-latest
     ports:
-        - 1433:1433
+        - 1452:1433
     env_file:
         - sqlenvironment.env
         - sqlpassword.env
     volumes:
-      - lilith_db:/var/opt/mssql
+      - ./data:/var/opt/mssql/data
+      - ./log:/var/opt/mssql/log
     networks:
-        - lilith-0
+        - lilith-0-network
   lilith-0:
     container_name: lilith-0
     image: ${DOCKER_REGISTRY-}lilith0
@@ -29,3 +23,8 @@ services:
         - 8001:80
     depends_on: 
         - lilith_db
+    networks:
+        - lilith-0-network
+networks:
+  lilith-0-network:
+    driver: bridge
