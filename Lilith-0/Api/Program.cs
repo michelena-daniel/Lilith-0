@@ -1,5 +1,7 @@
+using Lilith_0.Data;
+using Microsoft.EntityFrameworkCore;
 
-namespace Lilith_0
+namespace Lilith_0.Api
 {
     public class Program
     {
@@ -13,6 +15,9 @@ namespace Lilith_0
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+
+            builder.Services.AddDbContext<ApplicationDbContext>(options =>
+                options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
             var app = builder.Build();
 
